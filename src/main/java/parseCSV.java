@@ -23,15 +23,23 @@ public class parseCSV {
         /**street,city,zip,state,beds,
          * baths,sq__ft,type,sale_date,
          * price,latitude,longitude**/
-        List<String> headers = parser.getHeaderNames();
-        List<CSVRecord> prices = parser.getRecords();
-        // display parsed info
-            //System.out.println("Headers: "+headers.toString());
-            //System.out.print("Headers: ");
-        headers = prices.get(0).stream().toList();
-            System.out.println(headers);
-        // parsed info calculations
-        System.out.println("Avg Prices: ");
+        List<String> headers;
+        List<Float> prices = null;
+        List<Double> sqft;
+
+        List<CSVRecord> allInfo = parser.getRecords();
+
+        headers = allInfo.get(0).stream().toList();
+        //prices = allInfo.get(Integer.parseInt("price")).stream().toList();
+        for (CSVRecord strings : allInfo) {
+            prices.add(strings.get("j"));
+        }
+
+            prices = allInfo.get(Integer.parseInt("j"));
+        //prices = Collections.singletonList(allInfo.get(Integer.parseInt("price")).toString());
+
+        System.out.println("Headers: "+headers);
+        System.out.println("Avg Prices: "+prices.toString());
         System.out.println("Avg Sq__Ft: ");
         System.out.println("Min Price: ");
         System.out.println("Max Prices: ");
