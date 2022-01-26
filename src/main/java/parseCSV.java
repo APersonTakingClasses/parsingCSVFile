@@ -1,6 +1,5 @@
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVPrinter;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,17 +18,18 @@ public class parseCSV {
         CSVParser parser = CSVParser.parse(data, StandardCharsets.US_ASCII, CSVFormat.EXCEL);
 
         // do parsing
-        CSVFormat.EXCEL.withDelimiter(',');
+        CSVFormat.EXCEL.withDelimiter(',').withHeader("street", "city", "zip", "state", "beds", "baths", "sq__ft", "type", "sale_date", "price", "latitude", "longitude");
         /**street,city,zip,state,beds,
          * baths,sq__ft,type,sale_date,
          * price,latitude,longitude**/
-        CSVFormat.EXCEL.withHeader("street", "city", "zip", "state", "beds",
-                "baths", "sq__ft", "type", "sale_date",
-                "price", "latitude", "longitude");
-
+        List<String> headers = parser.getHeaderNames();
         // display parsed info
-
+        System.out.println("Headers: "+headers.toString());
         // parsed info calculations
+        System.out.println("Avg Prices: ");
+        System.out.println("Avg Sq__Ft: ");
+        System.out.println("Min Price: ");
+        System.out.println("Max Prices: ");
     }
 
 }
