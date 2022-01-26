@@ -31,15 +31,16 @@ public class parseCSV {
 
         headers = allInfo.get(0).stream().toList();
         //prices = allInfo.get(Integer.parseInt("price")).stream().toList();
+        /**
         for (CSVRecord strings : allInfo) {
             prices.add(strings.get("j"));
         }
 
             prices = allInfo.get(Integer.parseInt("j"));
         //prices = Collections.singletonList(allInfo.get(Integer.parseInt("price")).toString());
-
+         **/
         System.out.println("Headers: "+headers);
-        System.out.println("Avg Prices: "+prices.toString());
+        //System.out.println("Avg Prices: "+prices.toString());
         System.out.println("Avg Sq__Ft: ");
         System.out.println("Min Price: ");
         System.out.println("Max Prices: ");
