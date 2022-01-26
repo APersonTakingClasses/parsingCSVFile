@@ -1,5 +1,6 @@
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,8 +24,12 @@ public class parseCSV {
          * baths,sq__ft,type,sale_date,
          * price,latitude,longitude**/
         List<String> headers = parser.getHeaderNames();
+        List<CSVRecord> prices = parser.getRecords();
         // display parsed info
-        System.out.println("Headers: "+headers.toString());
+            //System.out.println("Headers: "+headers.toString());
+            //System.out.print("Headers: ");
+        headers = prices.get(0).stream().toList();
+            System.out.println(headers);
         // parsed info calculations
         System.out.println("Avg Prices: ");
         System.out.println("Avg Sq__Ft: ");
