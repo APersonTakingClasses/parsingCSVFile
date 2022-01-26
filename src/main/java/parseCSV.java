@@ -24,23 +24,20 @@ public class parseCSV {
          * baths,sq__ft,type,sale_date,
          * price,latitude,longitude**/
         List<String> headers;
-        List<Float> prices = null;
-        List<Double> sqft;
+        List<String> prices = List.of(new String[]{""});
+        List<String> sqft;
 
         List<CSVRecord> allInfo = parser.getRecords();
 
-        headers = allInfo.get(0).stream().toList();
-        //prices = allInfo.get(Integer.parseInt("price")).stream().toList();
-        /**
-        for (CSVRecord strings : allInfo) {
-            prices.add(strings.get("j"));
+        headers = allInfo.get(0).toList();
+        //prices = allInfo.get().stream().toList();
+        for(CSVRecord record : parser){
+            prices.add(String.valueOf(record));
         }
-
-            prices = allInfo.get(Integer.parseInt("j"));
         //prices = Collections.singletonList(allInfo.get(Integer.parseInt("price")).toString());
-         **/
+
         System.out.println("Headers: "+headers);
-        //System.out.println("Avg Prices: "+prices.toString());
+        System.out.println("Avg Prices: "+prices);
         System.out.println("Avg Sq__Ft: ");
         System.out.println("Min Price: ");
         System.out.println("Max Prices: ");
