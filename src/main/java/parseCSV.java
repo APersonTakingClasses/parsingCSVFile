@@ -31,8 +31,14 @@ public class parseCSV {
 
         headers = allInfo.get(0).toList();
         //prices = allInfo.get().stream().toList();
-        for(CSVRecord record : parser){
-            prices.add(String.valueOf(record));
+        int i = 1;
+        String temp = "";
+        List<String> record = allInfo.get(0).toList();
+        while(i<986){
+            record = allInfo.get(i).toList();
+            temp = record.get(10).substring(1,2);
+            prices.add(temp.toString());
+            i++;
         }
         //prices = Collections.singletonList(allInfo.get(Integer.parseInt("price")).toString());
 
